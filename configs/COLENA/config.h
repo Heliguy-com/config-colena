@@ -35,14 +35,14 @@
 #define USE_BARO
 #define USE_BARO_BMP388
 // FIXME: Add drivers for BMM350
-#define USE_MAG
-#define USE_MAG_BMM350
+// #define USE_MAG
+// #define USE_MAG_BMM350
 
-// TODO: Is flash required? ¯\_(ツ)_/¯
-// #define USE_FLASH
-// #define USE_FLASH_M25P16 // MB85RS1MTPW-G-APEWE1
-// #define FLASH_CS_PIN       PF6
-// #define FLASH_SPI_INSTANCE SPI5
+#define USE_FLASH
+#define USE_FLASH_MB85RS
+#define FLASH_CS_PIN         PF6
+#define FLASH_FRAM_HLD_PIN   PD10   // UNUSED BUT REQUIRED - Interrupt serial input output without de-select of SPI
+#define FLASH_FRAM_WP_PIN    PD9    // UNUSED BUT REQUIRED - Controls writing of a status register
 
 #define MOTOR1_PIN           PE13
 #define MOTOR2_PIN           PB0
@@ -93,10 +93,11 @@
 #define LED0_PIN             PB0
 #define LED1_PIN             PE11
 
-#define MAG_I2C_INSTANCE (I2C1) // I2CDEV_1?
-#define BARO_I2C_INSTANCE (I2C2) // I2CDEV_2?
-#define GYRO_1_SPI_INSTANCE SPI1
-#define GYRO_2_SPI_INSTANCE SPI3
+// #define MAG_I2C_INSTANCE     I2CDEV_1?
+#define BARO_I2C_INSTANCE    I2CDEV_2
+#define GYRO_1_SPI_INSTANCE  SPI1
+#define GYRO_2_SPI_INSTANCE  SPI3
+#define FLASH_SPI_INSTANCE   SPI5
 
 // TODO: Where is the ACC instance defined.
 // #define ACC_1_SPI_INSTANCE SPI1
